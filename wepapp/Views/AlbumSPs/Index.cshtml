@@ -1,0 +1,41 @@
+﻿@model IEnumerable<wepapp.Models.AlbumSP>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hinh)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SP.MaSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hinh)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaAlbum">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaAlbum">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaAlbum">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

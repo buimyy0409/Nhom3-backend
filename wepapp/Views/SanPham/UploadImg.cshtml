@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Tải ảnh lên";
+}
+
+<h2>Tải ảnh lên</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="file">Chọn ảnh</label>
+        <input type="file" name="file" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Tải lên</button>
+</form>

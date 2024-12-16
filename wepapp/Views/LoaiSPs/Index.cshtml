@@ -1,0 +1,78 @@
+﻿@model IEnumerable<wepapp.Models.LoaiSP>
+
+@{
+    ViewData["Title"] = "Danh mục Sản phẩm";
+}
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- DATA TABLE -->
+                    <h3 class="title-5 m-b-35">BẢNG DANH MỤC SẢN PHẨM</h3>
+                    <div class="table-data__tool">
+                        <div class="table-data__tool-left">
+                            <div class="rs-select2--light rs-select2--md">
+                                <select class="js-select2" name="property">
+                                    <option selected="selected">Hành động</option>
+                                    <option value="">Chỉnh sửa</option>
+                                    <option value="">Xóa</option>
+                                </select>
+                                <div class="dropDownSelect2"></div>
+                            </div>
+                            <button type="button" class="btn btn-success">Áp dụng</button>
+                        </div>
+                        <!-- Nút thêm danh mục mới -->
+                        <div class="table-data__tool-right">
+                            <a class="au-btn au-btn-icon au-btn--green au-btn--small" asp-action="Create">
+                                <i class="zmdi zmdi-plus"></i>Thêm danh mục mới
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive table-responsive-data2">
+                        <table class="table table-data2">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" id="checkAll" /></th>
+                                    <th>Mã</th>
+                                    <th>Tên</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="tr-shadow">
+                                        <td><input type="checkbox" class="checkbox" /></td>
+                                        <td>@item.MaLoai</td> <!-- Hiển thị mã loại -->
+                                        <td>@item.TenLoai</td> <!-- Hiển thị tên loại -->
+                                        <td>
+                                            <div class="table-data-feature" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                                                <a class="item" title="Xem" asp-action="Details" asp-route-id="@item.MaLoai">
+                                                    <i class="zmdi zmdi-eye"></i>
+                                                </a>
+                                                <a class="item" data-placement="top" title="Sửa" asp-action="Edit" asp-route-id="@item.MaLoai">
+                                                    <i class="zmdi zmdi-edit"></i>
+                                                </a>
+                                                <a class="item" data-placement="top" title="Xóa" asp-action="Delete" asp-route-id="@item.MaLoai">
+                                                    <i class="zmdi zmdi-delete"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- END DATA TABLE -->
+                </div>
+            </div>
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

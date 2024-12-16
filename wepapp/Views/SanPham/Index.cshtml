@@ -1,0 +1,103 @@
+﻿@model IEnumerable<wepapp.Models.SanPham>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- DATA TABLE -->
+                    <h3 class="title-5 m-b-35">BẢNG SẢN PHẨM</h3>
+                    <div class="table-data__tool">
+                        <div class="table-data__tool-left">
+                            <div class="rs-select2--light rs-select2--md">
+                                <select class="js-select2" name="property">
+                                    <option selected="selected">Hành động</option>
+                                    <option value="edit">Chỉnh sửa</option>
+                                    <option value="delete">Xóa</option>
+                                </select>
+                                <div class="dropDownSelect2"></div>
+                            </div>
+                            <div class="rs-select2--light rs-select2--md">
+                                <select class="js-select2" name="status">
+                                    <option selected="selected">Tình trạng</option>
+                                    <option value="available">Còn hàng</option>
+                                    <option value="outofstock">Hết hàng</option>
+                                </select>
+                                <div class="dropDownSelect2"></div>
+                            </div>
+                            <button class="au-btn-filter">
+                                <i class="zmdi zmdi-filter-list"></i>Lọc
+                            </button>
+                        </div>
+                        <div class="table-data__tool-right">
+                            <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="location.href='@Url.Action("Create", "SanPham")'">
+                                <i class="zmdi zmdi-plus"></i>Thêm sản phẩm mới
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-responsive table-responsive-data2">
+                        <table class="table table-data2">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" id="checkAll" /></th>
+                                    <th>Ảnh</th>
+                                    <th>Tên</th>
+                                    <th>Mã</th>
+                                    <th>Kích hoạt</th>
+                                    <th>Giá</th>
+                                    <th>Chất liệu</th>
+                                    <th>Danh mục</th>
+                                    <th>Ngày đăng</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="tr-shadow">
+                                        <td><input type="checkbox" class="checkbox" /></td>
+                                        <td>
+                                            <img src="~/uploads/@item.HinhChinh" alt="Hình ảnh sản phẩm" class="product-image" style="width: 50px; height: 50px;" />
+                                        </td>
+                                        <td>@item.TenSP</td>
+                                        <td>@item.MaSP</td>
+                                        <td>
+                                            <label class="switch switch-3d switch-success mr-3">
+                                                <input type="checkbox" class="switch-input" @(item.TrangThai == "Hiển thị" ? "checked" : "")>
+                                                <span class="switch-label"></span>
+                                                <span class="switch-handle"></span>
+                                            </label>
+                                        </td>
+                                        <td>@String.Format("{0:n0}", item.Gia) VNĐ</td>
+                                        <td>@item.SKU</td>
+                                        <td>@item.MaLoai</td>
+                                        <td>@item.NgayTao.ToString("dd-MM-yyyy")</td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button class="item" title="Xem" onclick="location.href='@Url.Action("Details", "SanPham", new { id = item.MaSP })'">
+                                                    <i class="zmdi zmdi-eye"></i>
+                                                </button>
+                                                <button class="item" title="Sửa" onclick="location.href='@Url.Action("Edit", "SanPham", new { id = item.MaSP })'">
+                                                    <i class="zmdi zmdi-edit"></i>
+                                                </button>
+                                                <button class="item" title="Xóa" onclick="location.href='@Url.Action("Delete", "SanPham", new { id = item.MaSP })'">
+                                                    <i class="zmdi zmdi-delete"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="spacer"></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- END DATA TABLE -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

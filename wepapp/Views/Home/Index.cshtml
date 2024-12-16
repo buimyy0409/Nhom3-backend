@@ -1,0 +1,290 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!--Hiển thị tiêu đề tổng quan và nút thêm mục và chỉ định các class
+                    cho phần tử này để chúng được hiển thị như mong muốn-->
+                    <div class="overview-wrap">
+                        <h2 class="title-1">Tổng quan</h2>
+                    </div>
+                </div>
+            </div>
+            <!--Hiển thị số liệu thống kê về số nội dung trên website -->
+            <!--Mỗi nội dung sẽ được hiển thị trong một khung, trong đó khung đó sẽ
+                bao gồm một icon thể hiện nội dung, tên nội dung, số liệu và biểu đồ thể hiện -->
+            <!--Hiển thị khung số liệu số người đã đăng ký-->
+            <div class="row m-t-25">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="overview-item overview-item--c1">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-account-o"></i>
+                                </div>
+                                <div class="text">
+                                    <h2>468</h2>
+                                    <span>Số người đăng ký</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--Hiển thị khung số liệu số sản phẩm được thêm vào giỏ hàng-->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="overview-item overview-item--c2">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-shopping-cart"></i>
+                                </div>
+                                <div class="text">
+                                    <h2>923</h2>
+                                    <span>Thêm giỏ hàng</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Hiển thị khung số liệu số đơn hàng đã hoàn tất-->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="overview-item overview-item--c3">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-calendar-note"></i>
+                                </div>
+                                <div class="text">
+                                    <h2>586</h2>
+                                    <span>Số đơn hoàn tất</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--Hiển thị khung số liệu Tổng doanh thu-->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="overview-item overview-item--c4">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-money"></i>
+                                </div>
+                                <div class="text">
+                                    <h2>9,000,000</h2>
+                                    <span>Tổng doanh thu</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="au-card m-b-30">
+                        <div class="au-card-inner">
+                            <h3 class="title-2 m-b-40">Đơn hàng</h3>
+                            <canvas id="doughutChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="au-card m-b-30">
+                        <div class="au-card-inner">
+                            <h3 class="title-2 m-b-40">Người đăng ký mới</h3>
+                            <canvas id="singelBarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="au-card m-b-30">
+                        <div class="au-card-inner">
+                            <h3 class="title-2 m-b-40">Doanh thu</h3>
+                            <canvas id="sales-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- DATA TABLE-->
+                    <div class="table-responsive m-b-40">
+                        <!--Tên của bảng là sản phẩm bán chạy-->
+                        <div class="title-1">Sản phẩm bán chạy</div>
+                        <table class="table table-borderless table-data3">
+                            <thead>
+                                <!--Hàng thể hiện tiêu đề của bảng-->
+                                <tr>
+                                    <th>Ảnh</th>
+                                    <th>Mã</th>
+                                    <th>Danh mục</th>
+                                    <th>Tên</th>
+                                    <th>Tồn kho</th>
+                                    <th>Đã bán</th>
+                                    <th>Giá</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <!-- Phần thân của bảng, chứa các hàng dữ liệu -->
+                            <tbody>
+                                <!-- Một hàng nội dung trong bảng -->
+                                <tr>
+                                    <td><img src="images/product/Nam/Áo Tấc.jpg" alt="Hình ảnh sản phẩm" class="product-image" /></td>
+                                    <td>WR123456</td>
+                                    <td>Áo tấc</td>
+                                    <td>Áo tấc Nam Xanh lá</td>
+                                    <td>5</td>
+                                    <td>30</td>
+                                    <td>3.500.000</td>
+                                    <td>
+                                        <!--nút xem trong cột hành động, cho phép người dùng có thể truy cập đến trang tương ứng
+                                            khi nhấn vào nút-->
+                                        <div class="table-data-feature">
+                                            <button class="item" title="Xem" onclick="window.location.href='viewproduct.html';">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Một hàng nội dung trong bảng -->
+                                <tr>
+                                    <td><img src="images/product/Phụ kiện/Cúc Phượng.jpg" alt="Hình ảnh sản phẩm" class="product-image" /></td>
+                                    <td>WR123457</td>
+                                    <td>Phụ kiện</td>
+                                    <td>Cúc hoa cài Nhật Bình</td>
+                                    <td>6</td>
+                                    <td>27</td>
+                                    <td>650.000</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" title="Xem" onclick="window.location.href='viewproduct.html';">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Một hàng nội dung trong bảng -->
+                                <tr>
+                                    <td><img src="images/product/Nữ/Giáp 1.jpg" alt="Hình ảnh sản phẩm" class="product-image" /></td>
+                                    <td>WR123458</td>
+                                    <td>Bộ giáp</td>
+                                    <td>Giáp gồm Tay + Chân + Bụng</td>
+                                    <td>4</td>
+                                    <td>25</td>
+                                    <td>4.980.000</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" title="Xem" onclick="window.location.href='viewproduct.html';">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Một hàng nội dung trong bảng -->
+                                <tr>
+                                    <td><img src="images/product/Nữ/Ngũ thân tay thụng.jpg" alt="Hình ảnh sản phẩm" class="product-image" /></td>
+                                    <td>WR123459</td>
+                                    <td>Áo tấc</td>
+                                    <td>Áo tấc Nữ Xanh</td>
+                                    <td>8</td>
+                                    <td>23</td>
+                                    <td>4.043.000</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" title="Xem" onclick="window.location.href='viewproduct.html';">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Một hàng nội dung trong bảng -->
+                                <tr>
+                                    <td><img src="images/product/Nữ/1. Nhật Bình Cam.jpg" alt="Hình ảnh sản phẩm" class="product-image" /></td>
+                                    <td>WR123460</td>
+                                    <td>Nhật Bình</td>
+                                    <td>Nhật Bình Cam</td>
+                                    <td>6</td>
+                                    <td>20</td>
+                                    <td>3.607.000</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" title="Xem" onclick="window.location.href='viewproduct.html';">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Một hàng nội dung trong bảng -->
+                                <tr>
+                                    <td><img src="images/product/Nữ/1. Nhật Bình Nâu.jpg" alt="Hình ảnh sản phẩm" class="product-image" /></td>
+                                    <td>WR123461</td>
+                                    <td>Nhật Bình</td>
+                                    <td>Nhật Bình Nâu</td>
+                                    <td>3</td>
+                                    <td>17</td>
+                                    <td>4.800.000</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" title="Xem" onclick="window.location.href='viewproduct.html';">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Một hàng nội dung trong bảng -->
+                                <tr>
+                                    <td><img src="images/product/Nam/1. Ngũ Thân Xanh lá.jpg" alt="Hình ảnh sản phẩm" class="product-image" /></td>
+                                    <td>WR123462</td>
+                                    <td>Nam</td>
+                                    <td>Áo tấc tay Phụng</td>
+                                    <td>6</td>
+                                    <td>15</td>
+                                    <td>4.800.000</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" title="Xem" onclick="window.location.href='viewproduct.html';">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Một hàng nội dung trong bảng -->
+                                <tr>
+                                    <td><img src="images/product/Nữ/Thầy bùa.jpg" alt="Hình ảnh sản phẩm" class="product-image" /></td>
+                                    <td>WR123463</td>
+                                    <td>Khác</td>
+                                    <td>Set Nhân vật thầy bùa</td>
+                                    <td>7</td>
+                                    <td>14</td>
+                                    <td>5.763.000</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" title="Xem" onclick="window.location.href='viewproduct.html';">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- END DATA TABLE                  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

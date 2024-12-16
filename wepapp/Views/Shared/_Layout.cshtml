@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Favicon -->
+    <link src="~/images/CMC logo.png" asp-append-version="true" alt="Chiêu Minh Các icon"/>
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/vendor/bootstrap-4.1/bootstrap.min.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Fontfaces CSS -->
+    <link href="~/css/font-face.css" rel="stylesheet" media="all" />
+    <link href="~/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all" />
+    <link href="~/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all" />
+    <link href="~/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all" />
+
+    <!-- Vendor CSS -->
+    <link href="~/vendor/animsition/animsition.min.css" rel="stylesheet" media="all" />
+    <link href="~/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all" />
+    <link href="~/vendor/wow/animate.css" rel="stylesheet" media="all" />
+    <link href="~/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all" />
+    <link href="~/vendor/slick/slick.css" rel="stylesheet" media="all" />
+    <link href="~/vendor/select2/select2.min.css" rel="stylesheet" media="all" />
+    <link href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all" />
+
+    <!-- Main CSS -->
+    <link href="~/css/theme.css" rel="stylesheet" media="all" asp-append-version="true" />
+
+    <!-- Custom Font -->
+    <style>
+        * {
+            font-family: 'Montserrat';
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- MENU SIDEBAR-->
+        <!--Phần logo nằm ở trên cùng sidebar-->
+        <aside class="menu-sidebar d-none d-lg-block">
+        <!--Hiển thị logo-->
+            <div class="logo">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="~/images/logo/logo.png" asp-append-version="true" alt="Chiêu Minh Các" />
+                </a>
+            </div>
+        <!--Nội dung của sidebar-->
+        <div class="menu-sidebar__content js-scrollbar1">
+            <!--Thanh điều hướng của sidebar-->
+            <nav class="navbar-sidebar">
+                <!--Danh sách các mục trong menu-->
+                <ul class="list-unstyled navbar__list">
+                    <!--Trang admin mục chính-->
+                    <li class="has-sub">
+                        <a class="js-arrow" href="@Url.Action("Index", "Home")" style="color: #ffca3d;">
+                            <!--Biểu tượng liên kết đến trang admin-->
+                            <i class="fas fa-home" style="color: #ffca3d;"></i>Bảng điều khiển
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Sanpham")">
+                            <!--Biểu tượng liên kết đến trang sản phẩm-->
+                            <i class="fas fa-cubes"></i>Sản phẩm
+                        </a>
+                    </li>
+                    <li>
+                            <a href="@Url.Action("Index", "LoaiSPs")">
+                            <!--Biểu tượng liên kết đến trang danh mục-->
+                            <i class="fas fa-tags"></i>Danh mục
+                        </a>
+                    </li>
+                    <li>
+                            <a href="@Url.Action("Index", "CTKMs")">
+                            <!--Biểu tượng liên kết đến trang khuyến mãi-->
+                            <i class="fas fa-percent"></i>Khuyến mãi
+                        </a>
+                    </li>
+                    <li>
+                            <a href="@Url.Action("Index", "DonHang")">
+                            <!--Biểu tượng liên kết đến trang đơn hàng-->
+                            <i class="fas fa-shopping-cart"></i>Đơn hàng
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <!--Khu vực các nút chức năng ở header-->
+                            <div class="header-button">
+                                <!--Khu vực thông báo-->
+                                <div class="noti-wrap"></div>
+                                <!--Khu vực thông tin tài khoản-->
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <!--Hiển thị ảnh avatar admin trên thanh header-->
+                                        <div class="image">
+                                            <img src="https://avatar-ex-swe.nixcdn.com/singer/avatar/2018/03/12/c/e/0/9/1520848320748_600.jpg" alt="Chiêu Minh Các" />
+                                        </div>
+                                        <!--Hiển thị tên admin trên thanh header-->
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="#">Mỹ Phường</a>
+                                        </div>
+                                        <!--Dropdown chi tiết tài khoản-->
+                                        <div class="account-dropdown js-dropdown">
+                                            <!--Thông tin cá nhân-->
+                                            <div class="info clearfix">
+                                                <!--Hiển thị ảnh avatar admin-->
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="https://avatar-ex-swe.nixcdn.com/singer/avatar/2018/03/12/c/e/0/9/1520848320748_600.jpg" alt="Mỹ Phường" />
+                                                    </a>
+                                                </div>
+                                                <!--Tên và email của tài khoản admin-->
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#">Mỹ Phường</a>
+                                                    </h5>
+                                                    <span class="email">myphuong@gmail.com</span>
+                                                </div>
+                                            </div>
+                                            <!-- Các mục khác trong dropdown-->
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-account"></i>Tài khoản
+                                                    </a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-settings"></i>Cài đặt
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- Footer dropdown: Đăng xuất-->
+                                            <div class="account-dropdown__footer">
+                                                <a href="#">
+                                                    <i class="zmdi zmdi-power"></i>Đăng xuất
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <script>
+                $(document).ready(function () {
+                    // Kích hoạt dropdown
+                    $('.js-item-menu').click(function (e) {
+                        e.preventDefault();
+                        var $this = $(this);
+                        var $dropdown = $this.find('.account-dropdown');
+                        $dropdown.toggleClass('show');
+                    });
+
+                    $(document).click(function (e) {
+                        if (!$(e.target).closest('.js-item-menu').length) {
+                            $('.account-dropdown').removeClass('show');
+                        }
+                    });
+                });
+            </script>
+            <!-- HEADER DESKTOP-->
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+        @await RenderSectionAsync("Scripts", required: false)
+    </div>
+    <!-- Jquery JS-->
+    <script src="~/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="~/vendor/slick/slick.min.js"></script>
+    <script src="~/vendor/wow/wow.min.js"></script>
+    <script src="~/vendor/animsition/animsition.min.js"></script>
+    <script src="~/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="~/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="~/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="~/vendor/select2/select2.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="~/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+﻿@model wepapp.Models.SanPham
+
+@{
+    ViewData["Title"] = "Create";
+    var danhSachLoaiSP = ViewBag.LoaiSPs;
+}
+
+<h1>Thêm Sản Phẩm</h1>
+
+<div class="card">
+    <div class="card-header">
+        <strong>Thêm sản phẩm mới</strong>
+    </div>
+    <div class="card-body card-block">
+        <form asp-action="Create" method="post" enctype="multipart/form-data" class="form-horizontal">
+            <!-- Tên Sản Phẩm -->
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label asp-for="TenSP" class="form-control-label">Tên sản phẩm*</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input asp-for="TenSP" class="form-control" placeholder="Tên sản phẩm" />
+                    <span asp-validation-for="TenSP" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Giá Sản Phẩm -->
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label asp-for="Gia" class="form-control-label">Giá sản phẩm</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input asp-for="Gia" class="form-control" placeholder="Giá sản phẩm" />
+                    <span asp-validation-for="Gia" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Màu sắc -->
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label asp-for="MauSac" class="form-control-label">Màu sắc</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input asp-for="MauSac" class="form-control" placeholder="Màu sắc sản phẩm" />
+                    <span asp-validation-for="MauSac" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Chất liệu -->
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label asp-for="ChatLieu" class="form-control-label">Chất liệu</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input asp-for="ChatLieu" class="form-control" placeholder="Chất liệu sản phẩm" />
+                    <span asp-validation-for="ChatLieu" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Giới tính -->
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label asp-for="GioiTinh" class="form-control-label">GioiTinh</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input asp-for="GioiTinh" class="form-control" placeholder="Giới tính" />
+                    <span asp-validation-for="GioiTinh" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- SKU -->
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label asp-for="SKU" class="form-control-label">SKU</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input asp-for="SKU" class="form-control" placeholder="SKU" />
+                    <span asp-validation-for="SKU" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Mô tả Sản Phẩm -->
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label asp-for="Mota" class="form-control-label">Mô tả sản phẩm</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <textarea asp-for="Mota" rows="9" class="form-control" placeholder="Mô tả..."></textarea>
+                    <span asp-validation-for="Mota" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Danh mục Sản Phẩm -->
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label asp-for="MaLoai" class="form-control-label">Danh mục sản phẩm</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <select asp-for="MaLoai" asp-items="ViewBag.LoaiSPs" class="form-control">
+                        <option value="0">Chọn danh mục</option>
+                    </select>
+                    <span asp-validation-for="MaLoai" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Hình Ảnh Chính -->
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label asp-for="HinhChinh" class="form-control-label">Hình ảnh chính</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input asp-for="HinhChinh" type="file" class="form-control-file" />
+                </div>
+            </div>
+
+            <!-- Album Hình Ảnh -->
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="file-multiple-input" class="form-control-label">Album hình ảnh</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="file" id="file-multiple-input" name="file-multiple-input" multiple class="form-control-file" />
+                </div>
+            </div>
+
+            <!-- Nút Tạo Mới -->
+            <div class="row form-group">
+                <div class="col-12 col-md-9 offset-md-3">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-dot-circle-o"></i> Thêm sản phẩm
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Index" class="btn btn-secondary btn-sm">
+            <i class="fa fa-arrow-left"></i> Quay lại danh sách
+        </a>
+    </div>
+</div>
+

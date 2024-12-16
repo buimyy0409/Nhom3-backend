@@ -1,0 +1,61 @@
+﻿@model wepapp.Models.LoaiSP
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!-- Phần nội dung chính -->
+<div class="section__content section__content--p30">
+    <!-- Tạo khoảng cách padding 30px -->
+    <div class="container-fluid">
+        <!-- Bắt đầu container cho giao diện -->
+        <div class="card">
+            <!-- Tiêu đề của thẻ card -->
+            <div class="card-header">
+                <strong>Thêm danh mục mới</strong>
+            </div>
+            <div class="card-body card-block">
+                <!-- Phần thân card chứa form -->
+                <form asp-action="Create" class="form-horizontal">
+                    <!-- Form gửi thông tin danh mục -->
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label asp-for="TenLoai" class="form-control-label">Tên danh mục*</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <input asp-for="TenLoai" placeholder="Tên" class="form-control">
+                            <span asp-validation-for="TenLoai" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="MaLoai" class="form-control-label">Mã danh mục*</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <input asp-for="MaLoai" placeholder="Mã" class="form-control">
+                            <span asp-validation-for="MaLoai" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Bỏ các trường Mô tả, Ảnh, Danh mục cha -->
+                    <!-- Nút Submit -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-dot-circle-o"></i> Đăng danh mục
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <a asp-action="Index" class="btn btn-secondary btn-sm">Quay lại danh sách</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
